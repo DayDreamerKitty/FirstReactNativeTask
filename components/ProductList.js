@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text } from "react-native";
+import ProductItem from "./ProductItem";
 
-const ProductList = () => {
+const ProductList = ({ products }) => {
+  const proList = products.map((product) => (
+    <ProductItem product={product} key={product._id} />
+  ));
   return (
     <View>
-      <Text></Text>
+      <Text>{proList}</Text>
     </View>
   );
 };
 
 export default ProductList;
-
-const styles = StyleSheet.create({});
