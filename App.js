@@ -6,6 +6,7 @@ import ShopDetail from "./components/ShopDetail";
 import ShopList from "./components/ShopList";
 import { createStackNavigator } from "@react-navigation/stack";
 import RootNavigation from "./components/Navigation";
+import CartList from "./components/CartList";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -16,6 +17,7 @@ export default function App() {
         {/* <Home /> */}
         {/* <ShopList /> */}
         {/* <ShopDetail /> */}
+        {/* <CartList /> */}
       </NativeBaseProvider>
     </NavigationContainer>
   );

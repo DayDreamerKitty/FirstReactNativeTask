@@ -1,5 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import CartButton from "./Buttons/CartButton";
+import CartList from "./CartList";
 import Home from "./Home";
 import ShopDetail from "./ShopDetail";
 import ShopList from "./ShopList";
@@ -12,11 +14,7 @@ const RootNavigation = () => {
       <Screen
         name="ShopList"
         component={ShopList}
-        options={{
-          headerStyle: {
-            backgroundColor: "orange",
-          },
-        }}
+        options={(props) => ({ headerRight: () => <CartButton {...props} /> })}
       />
       <Screen
         name="ShopDetail"
@@ -27,7 +25,9 @@ const RootNavigation = () => {
             title: shop.name,
           };
         }}
+        options={(props) => ({ headerRight: () => <CartButton {...props} /> })}
       />
+      <Screen name="CartList" component={CartList} />
     </Navigator>
   );
 };
