@@ -3,12 +3,12 @@ import { observer } from "mobx-react";
 import { StyleSheet, Text, View, Image } from "react-native";
 import shopStore from "../stores/shopStore";
 import ProductList from "./ProductList";
-import { Spinner } from "native-base";
+import { Spinner, Button } from "native-base";
 import { baseURL } from "../stores/instance";
 
-const ShopDetail = () => {
+const ShopDetail = ({ navigation, route }) => {
   if (shopStore.isLoading) return <Spinner />;
-  const shop = shopStore.shops[0];
+  const shop = route.params.shop;
   return (
     <View>
       <Text>{shop.name}</Text>
@@ -17,6 +17,7 @@ const ShopDetail = () => {
         style={{ width: 50, height: 50 }}
       />
       <ProductList products={shop.products} />
+      <Button onPress={() => navigation.navigate("Home")}> Home </Button>
     </View>
   );
 };

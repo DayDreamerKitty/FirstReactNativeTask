@@ -1,13 +1,16 @@
 import React from "react";
-import { Text, View, Button } from "react-native";
+import { View } from "react-native";
+import { Button, Text } from "native-base";
 import { StatusBar } from "expo-status-bar";
 import styles from "../styles";
 
-function Home() {
+function Home({ navigation }) {
   return (
     <View style={styles.container}>
       <Text>Home Page!</Text>
-      <Button title="Press me!" onPress={() => alert("Hi!")} />
+      <Button onPress={() => navigation.navigate("ShopList")}>
+        Shops List
+      </Button>
       <StatusBar style="auto" />
     </View>
   );
