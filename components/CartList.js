@@ -11,7 +11,7 @@ const CartList = () => {
   const cartList = cartStore.items.map((item) => (
     <CartItem item={item} key={item.product._id} />
   ));
-  return <View style={styles.container}> {cartList}</View>;
+  return <View style={styles.container}>{cartList}</View>;
 };
 
 export default observer(CartList);
