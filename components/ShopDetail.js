@@ -5,12 +5,13 @@ import shopStore from "../stores/shopStore";
 import ProductList from "./ProductList";
 import { Spinner, Button } from "native-base";
 import { baseURL } from "../stores/instance";
+import styles from "../styles";
 
 const ShopDetail = ({ navigation, route }) => {
   if (shopStore.isLoading) return <Spinner />;
   const shop = route.params.shop;
   return (
-    <View>
+    <View style={styles.container}>
       <Text>{shop.name}</Text>
       <Image
         source={{ uri: baseURL + shop.image }}
@@ -23,5 +24,3 @@ const ShopDetail = ({ navigation, route }) => {
 };
 
 export default observer(ShopDetail);
-
-const styles = StyleSheet.create({});
