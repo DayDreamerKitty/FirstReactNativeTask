@@ -1,11 +1,14 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { Button } from "native-base";
+import { Badge, Button } from "native-base";
 import Icon from "react-native-vector-icons/AntDesign";
+import cartStore from "../../stores/cartStore";
+import { observer } from "mobx-react";
 
 const CartButton = ({ navigation }) => {
   return (
     <View>
+      <Badge>{cartStore.totalQuantity}</Badge>
       <Icon
         style={{ marginRight: 15, color: "pink" }}
         name="staro"
@@ -16,4 +19,4 @@ const CartButton = ({ navigation }) => {
   );
 };
 
-export default CartButton;
+export default observer(CartButton);
