@@ -1,6 +1,6 @@
-import { Box, HStack, VStack, Avatar } from "native-base";
+import { Box, HStack, VStack, Avatar, Button } from "native-base";
 import React, { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import { baseURL } from "../stores/instance";
 import NumericInput from "react-native-numeric-input";
 import { observer } from "mobx-react";
@@ -11,6 +11,10 @@ const CartItem = ({ item }) => {
   const handleAdd = (value) => {
     setQuantity(value);
     cartStore.addItemToCart(item.product, value);
+  };
+
+  const handleDelete = () => {
+    cartStore.removeItemFromCart(item.product._id);
   };
 
   return (
@@ -28,6 +32,7 @@ const CartItem = ({ item }) => {
           value={quantity}
           onChange={(value) => handleAdd(value)}
         />
+        <Button onPress={handleDelete}>Remove</Button>
         <Text> Total Price</Text>
         <Text>{item.quantity * item.product.price} KD </Text>
       </HStack>
