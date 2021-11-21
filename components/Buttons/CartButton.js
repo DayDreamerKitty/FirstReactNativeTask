@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { Badge, Button } from "native-base";
+import { View } from "react-native";
+import { Badge } from "native-base";
 import Icon from "react-native-vector-icons/AntDesign";
 import cartStore from "../../stores/cartStore";
 import { observer } from "mobx-react";
