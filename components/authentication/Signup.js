@@ -7,7 +7,7 @@ import { StyleSheet } from "react-native";
 import { Button } from "native-base";
 
 const Signup = ({ navigation }) => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ username: "", password: "", email: "" });
   const handleSubmit = async () => {
     await authStore.Signup(user, navigation);
   };
@@ -18,6 +18,11 @@ const Signup = ({ navigation }) => {
         onChangeText={(username) => setUser({ ...user, username })}
         style={styles.authTextInput}
         placeholder="Username"
+      />
+      <TextInput
+        onChangeText={(email) => setUser({ ...user, email })}
+        style={styles.authTextInput}
+        placeholder="Email"
       />
       <Input
         type="password"
